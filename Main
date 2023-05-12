@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Consultorio consultorio = new Consultorio();
+        Administrador administrador = new Administrador("Kathya", "Zeus03");
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Bienvenido al sistema de administración de citas");
+
+        
+        boolean loggedIn = false;
+        while (!loggedIn) {
+            System.out.print("Usuario: ");
+            String usuario = input.nextLine();
+            System.out.print("Contraseña: ");
+            String contraseña = input.nextLine();
+
+            loggedIn = administrador.validarCredenciales(usuario, contraseña);
+
+            if (!loggedIn) {
+                System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
+            }
+        }
+
+        
+        while (loggedIn) {
+            System.out.println("\n¿Qué acción deseas realizar?");
+            System.out.println("1. Agregar doctor");
+            System.out.println("2. Agregar paciente");
+            System.out.println("3. Ver lista de pacientes");
+            System.out.println("4. Ver lista de doctores");
+            System.out.println("5. Seleccionar una cita");
+            System.out.println("6. Agendar cita");
+            System.out.println("7. Salir");
+
+            System.out.print("Opción: ");
+            int opcion = input.nextInt();
+            input.nextLine(); 
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Nombre del doctor: ");
+                    String nombreDoctor = input.nextLine();
+                    System.out.print("Número de doctor: ");
+                    String numeroDoctor = input.nextLine();
+                    System.out.print("Especialidad: ");
+                    String especialidadDoctor = input.nextLine();
+                    System.out.print("Horario: ");
+                    String horarioDoctor = input.nextLine();
+                    System.out.print("Ubicación del consultorio: ");
+                    String ubicacionConsultorio = input.nextLine();
+
+                    consultorio.agregarDoctor(nombreDoctor, numeroDoctor, especialidadDoctor, horarioDoctor, ubicacionConsultorio);
+                    break;
+                case 2:
+                    consultorio.agregarPaciente();
+                    break;
+                case 3:
+                    consultorio.mostrarPacientes();
+                    break;
+                case 4:
+                    consultorio.mostrarDoctores();
+                    break;
+                case 5:
+                   
+                    break;
+                case 6:
+                    consultorio.agendarCita();
+                    break;
+                case 7:
+                    loggedIn = false;
+                    System.out.println("Cerrando sesión...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intenta de nuevo.");
+                    break;
+            }
+        }
+
+        System.out.println("¡Hasta luego!");
+    }
+}
