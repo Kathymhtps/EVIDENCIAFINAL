@@ -1,0 +1,100 @@
+public class Paciente {
+
+    private int idPaciente;
+    private String nombre;
+    private String fechaNacimiento;
+    private double peso;
+    private double estatura;
+    private String sexo;
+    private String telefono;
+    private Doctor doctor;
+    private Doctor doctorAsignado;
+    private static int idCounter = 1;
+    
+
+    public Paciente(int idPaciente, String nombre, String fechaNacimiento, double peso, double estatura, String sexo, String numero, Doctor doctor) {
+        this.idPaciente = idPaciente;
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        this.peso = peso;
+        this.estatura = estatura;
+        this.sexo = sexo;
+        this.telefono = numero;
+        this.doctor = doctor;
+        this.idPaciente = idCounter++;
+    }
+
+    public int getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getEstatura() {
+        return estatura;
+    }
+
+    public void setEstatura(double estatura) {
+        this.estatura = estatura;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String numero) {
+        this.telefono = numero;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public void setDoctorAsignado(Doctor doctor) {
+        this.doctorAsignado = doctor;
+    }
+
+    public Doctor getDoctorAsignado() {
+        return doctorAsignado;
+    }
+  
+}
+
