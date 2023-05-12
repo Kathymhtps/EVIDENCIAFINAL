@@ -1,0 +1,114 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Consultorio {
+    
+    
+    private ArrayList<Doctor> doctores = new ArrayList<Doctor>();
+    private ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
+    private ArrayList<Cita> citas = new ArrayList<Cita>();
+    private Scanner input = new Scanner(System.in);
+ private Doctor doctorAsignado;
+ private int idDoctor;
+ private String ubicacionConsultorio;
+  private int idCita;
+  private String ubicacion;
+  private String motivo;
+ 
+    public void agregarDoctor(String nombre, String numero, String especialidad, String horario, String ubicacion) {
+        Doctor doctor = new Doctor(idDoctor, nombre, especialidad, ubicacionConsultorio, horario, numero);
+          doctores.add(doctor);
+
+        System.out.println("Doctor agregado con éxito. ID asignado: " + doctor.getIdDoctor());
+    }
+
+    public Doctor buscarDoctor(int idDoctor) {
+        for (Doctor doctor : doctores) {
+            if (doctor.getIdDoctor() == idDoctor) {
+                return doctor;
+            }
+        }
+        System.out.println("Doctor no encontrado.");
+        return null;
+    }
+
+    public void agregarPaciente() {
+        System.out.print("Ingrese el nombre del paciente: ");
+        String nombre = input.nextLine();
+        mostrarDoctores();
+        System.out.print("Ingrese el ID del doctor seleccionado: ");
+        int idDoctor = input.nextInt();
+        input.nextLine(); 
+        Doctor doctorSeleccionado = buscarDoctor(idDoctor);
+        System.out.print("Ingrese el número telefónico del paciente: ");
+        String numero = input.nextLine();
+        System.out.print("Ingrese la fecha de nacimiento del paciente (formato dd/mm/yyyy): ");
+        String fechaNacimiento = input.nextLine();
+        System.out.print("Ingrese el peso del paciente: ");
+        double peso = input.nextDouble();
+        System.out.print("Ingrese la estatura del paciente: ");
+        double estatura = input.nextDouble();
+        input.nextLine(); 
+        System.out.print("Ingrese el sexo del paciente: ");
+        String sexo = input.nextLine();
+        int idPaciente = pacientes.size() + 1;
+       Paciente paciente = new Paciente(idPaciente, nombre, fechaNacimiento, peso, estatura, sexo, numero, doctorAsignado);
+             pacientes.add(paciente);
+
+        System.out.println("\nPaciente agregado exitosamente.");
+    }
+
+    public void agendarCita() {
+        System.out.println("AGENDAR CITA");
+        mostrarPacientes();
+        System.out.print("Ingrese el ID del paciente: ");
+        int idPaciente = input.nextInt();
+        input.nextLine(); 
+        System.out.print("Ingrese el motivo de la cita: ");
+        int motivo = input.nextInt();
+        input.nextLine(); 
+        Paciente pacienteSeleccionado = buscarPaciente(idPaciente);
+        mostrarDoctores();
+        System.out.print("Ingrese el ID del doctor: ");
+        int idDoctor = input.nextInt();
+        input.nextLine(); 
+        Doctor doctorSeleccionado = buscarDoctor(idDoctor);
+        System.out.print("Ingrese la fecha de la cita (dd/mm/yyyy): ");
+        String fecha = input.next();
+        System.out.print("Ingrese la hora de la cita (hh:mm): ");
+        String hora = input.next();
+        Cita cita = new Cita(idCita, fecha, hora, pacienteSeleccionado, doctorSeleccionado, ubicacion);
+citas.add(cita);
+
+        citas.add(cita);
+        System.out.println("Cita agendada con éxito.");
+    }
+
+    public Paciente buscarPaciente(int id) {
+        for (Paciente paciente : pacientes) {
+            if (paciente.getIdPaciente() == id) {
+                return paciente;
+            }
+        }
+        System.out.println("No se encontró el paciente con ID " + id);
+        return null;
+    }
+
+    public void mostrarDoctores() {
+        System.out.println("Lista de doctores:");
+        for (Doctor doctor : doctores) {
+            System.out.println(doctor.toString());
+        }
+    
+    }
+    public void mostrarPacientes() {
+    System.out.println("Lista de pacientes:");
+    for (Paciente paciente : pacientes) {
+        System.out.println(paciente.toString());
+    }
+}
+
+}
+
+
+   
