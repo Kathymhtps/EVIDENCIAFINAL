@@ -1,0 +1,71 @@
+public class Doctor {
+    private int idDoctor;
+    private String nombre;
+    private String especialidad;
+    private String ubicacionConsultorio;
+    private String horario;
+    private String numero;
+    private String doctor;
+    private static int idCounter = 1;
+
+    public Doctor(int idDoctor, String nombre, String especialidad, String ubicacionConsultorio, String horario, String numero) {
+        this.idDoctor = idDoctor;
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+        this.ubicacionConsultorio = ubicacionConsultorio;
+        this.horario = horario;
+        this.numero = numero;
+        this.idDoctor = idCounter++;
+    }
+
+    
+    public int getIdDoctor() {
+        return idDoctor;
+    }
+
+    public void setIdDoctor(int idDoctor) {
+        this.idDoctor = idDoctor;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public String getUbicacionConsultorio() {
+        return ubicacionConsultorio;
+    }
+
+    public void setUbicacionConsultorio(String ubicacionConsultorio) {
+        this.ubicacionConsultorio = ubicacionConsultorio;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+   
+}
